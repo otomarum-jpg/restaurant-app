@@ -1,4 +1,4 @@
- import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -15,11 +15,12 @@ export async function GET(request: NextRequest) {
       headers: {
         'Content-Type': 'application/json',
         'X-Goog-Api-Key': apiKey!,
-        'X-Goog-FieldMask': 'places.displayName,places.location,places.rating,places.userRatingCount,places.regularOpeningHours,places.primaryTypeDisplayName',
+        'X-Goog-FieldMask': 'places.displayName,places.location,places.rating,places.userRatingCount,places.regularOpeningHours,places.primaryTypeDisplayName,places.googleMapsUri,places.websiteUri',
       },
       body: JSON.stringify({
         includedTypes: ['restaurant', 'cafe', 'bar'],
         maxResultCount: 20,
+        rankPreference: 'DISTANCE',
         locationRestriction: {
           circle: {
             center: { latitude: parseFloat(lat!), longitude: parseFloat(lng!) },
