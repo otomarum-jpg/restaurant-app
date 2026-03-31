@@ -141,7 +141,7 @@ export default function Home() {
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
         style={{
-          position: 'absolute', top: 12, left: sidebarOpen ? 308 : 12, zIndex: 1000,
+          position: 'fixed', top: 12, left: sidebarOpen ? 308 : 12, zIndex: 9999,
           width: 32, height: 32, borderRadius: '50%', border: '1px solid #ddd',
           background: '#fff', cursor: 'pointer', fontSize: 14, transition: 'left 0.3s',
           display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 4px rgba(0,0,0,0.2)'
